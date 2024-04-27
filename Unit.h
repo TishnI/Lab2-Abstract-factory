@@ -5,6 +5,7 @@
 using std::string;
 using std::runtime_error;
 using std::shared_ptr;
+using std::vector;
 
 
 class Unit
