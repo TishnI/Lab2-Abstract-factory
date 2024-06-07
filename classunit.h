@@ -15,6 +15,7 @@ public:
 
     static const vector<string> ACCESS_MODIFIERS;
 
+public:
     explicit ClassUnit(const string& name);
 
     void add(const shared_ptr<Unit>& unit, Flags flags);
@@ -25,5 +26,7 @@ private:
     using Fields = vector<shared_ptr<Unit>>;
     vector<Fields> m_fields;
 };
+
+
 
 #endif // CLASSUNIT_H
