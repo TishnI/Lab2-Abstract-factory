@@ -1,11 +1,11 @@
-#include "classunit.h"
+#include "CPPClassUnit.h"
 
-ClassUnit::ClassUnit(const string& name):m_name(name)
+CPPClassUnit::CPPClassUnit(const string &name):m_name(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }
 
-void ClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
+void CPPClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
 {
     int accessModifier = PRIVATE;
 
@@ -17,7 +17,7 @@ void ClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
     m_fields[accessModifier].push_back(unit);
 }
 
-string ClassUnit::compile(unsigned int level) const
+string CPPClassUnit::compile(unsigned int level) const
 {
     string result = generateShift(level) + "class" + m_name + " {\n";
 
@@ -40,4 +40,4 @@ string ClassUnit::compile(unsigned int level) const
     return result;
 }
 
-const vector<string> ClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
+const vector<string> CPPClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};

@@ -1,11 +1,10 @@
 #include <QCoreApplication>
 #include <iostream>
 
-#include "classunit.h"
-#include "MethodUnit.h"
-#include "PrintOperatorUnit.h"
+#include"CodeGenerator.h"
+#include "CPP/CPPFactory.h"
 
-string generateProgram()
+/*string generateProgram()
 {
     ClassUnit myClass("MyClass");
 
@@ -18,11 +17,16 @@ string generateProgram()
     myClass.add(method, ClassUnit::PROTECTED);
 
     return myClass.compile();
-}
+}*/
 
-int main(int argc, char *argv[])
+int main()
 {
-    std::cout<<generateProgram()<<std::endl;
+    //std::cout<<generateProgram()<<std::endl;
+    CPPFactory cppFactory;
+    CodeGenerator codeGenerator;
+
+    std::cout<<cppFactory.GenerateProgram()<<std::endl;
+
     return 0;
 }
 
