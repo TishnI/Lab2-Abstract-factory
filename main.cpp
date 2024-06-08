@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <iostream>
 
-#include"CodeGenerator.h"
 #include "CPP/CPPFactory.h"
 #include "CSharp/CSharpFactory.h"
 
@@ -19,18 +18,38 @@
 
     return myClass.compile();
 }*/
+string generateProgram(shared_ptr<ICodeFactory>& factory)
+{
+    auto myClass = factory->createClass("MyClass");
+
+    if(myClass != nullptr)
+    {
+        myClass->add(factory->createMethod("testFunc1", "void", 0), AbstractClassUnit::PUBLIC);
+        myClass->add(factory->createMethod("testFunc2", "void", AbstractMethodUnit::STATIC), AbstractClassUnit::PRIVATE);
+        myClass->add(factory->createMethod("testFunc3", "void", AbstractMethodUnit::VIRTUAL | AbstractMethodUnit::CONST), AbstractClassUnit::PUBLIC);
+        shared_ptr<AbstractMethodUnit> method = factory->createMethod("testFunc4", "void", AbstractMethodUnit::STATIC);
+        method->add(factory->createMethodBody(R"(Hello, world!\n)"));
+        myClass->add(method, AbstractClassUnit::PROTECTED);
+
+        return myClass->compile();
+    }
+
+    return "";
+}
 
 int main()
 {
     //std::cout<<generateProgram()<<std::endl;
-    CPPFactory cppFactory;
-    CSharpFactory csharpFactory;
-    //CodeGenerator codeGenerator;
 
-    std::cout<<csharpFactory.generateProgram()<<std::endl;
+    shared_ptr<ICodeFactory> cppFactory = make_shared<CPPFactory>();
+    shared_ptr<ICodeFactory> csharpFactory = make_shared<CSharpFactory>();
+
+    std::cout<<generateProgram(csharpFactory)<<std::endl;
 
     return 0;
 }
+
+
 
 
 

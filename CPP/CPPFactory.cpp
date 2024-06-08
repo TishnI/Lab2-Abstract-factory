@@ -1,7 +1,7 @@
 #include "CPPFactory.h"
 
 
-string CPPFactory::generateProgram()
+/*string CPPFactory::generateProgram()
 {
     CPPClassUnit myClass("MyClass");
 
@@ -14,4 +14,19 @@ string CPPFactory::generateProgram()
     myClass.add(method, CPPClassUnit::PROTECTED);
 
     return myClass.compile();
+}*/
+
+shared_ptr<AbstractClassUnit> CPPFactory::createClass(const string &name)
+{
+    return make_shared<CPPClassUnit>(name);
+}
+
+shared_ptr<AbstractMethodUnit> CPPFactory::createMethod(const string &name, const string &returnType, Flags flags)
+{
+    return make_shared<CPPMethodUnit>(name, returnType, flags);
+}
+
+shared_ptr<AbstractMethodBodyUnit> CPPFactory::createMethodBody(const string &text)
+{
+    return make_shared<CPPPrintOperatorUnit>(text);
 }

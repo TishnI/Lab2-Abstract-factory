@@ -18,7 +18,6 @@ SOURCES += \
         CSharp/CSharpFactory.cpp \
         CSharp/CSharpMethodUnit.cpp \
         CSharp/CSharpPrintOperatorUnit.cpp \
-        CodeGenerator.cpp \
         ICodeFactory.cpp \
         Unit.cpp \
         main.cpp
@@ -40,6 +39,5 @@ HEADERS += \
     CSharp/CSharpFactory.h \
     CSharp/CSharpMethodUnit.h \
     CSharp/CSharpPrintOperatorUnit.h \
-    CodeGenerator.h \
     ICodeFactory.h \
     Unit.h
