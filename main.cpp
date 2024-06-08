@@ -5,22 +5,15 @@
 #include "CSharp/CSharpFactory.h"
 #include "Java/JavaFactory.h"
 
-/*string generateProgram()
-{
-    ClassUnit myClass("MyClass");
 
-    myClass.add(std::make_shared<MethodUnit>("testFunc1", "void", 0), ClassUnit::PUBLIC);
-    myClass.add(std::make_shared<MethodUnit>("testFunc2", "void", MethodUnit::STATIC), ClassUnit::PRIVATE);
-    myClass.add(std::make_shared<MethodUnit>("testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST), ClassUnit::PUBLIC);
-
-    auto method = std::make_shared<MethodUnit>("testFunc4", "void", MethodUnit::STATIC);
-    method->add(std::make_shared<PrintOperatorUnit>(R"(Hello, world!\n)"));
-    myClass.add(method, ClassUnit::PROTECTED);
-
-    return myClass.compile();
-}*/
 string generateProgram(shared_ptr<ICodeFactory>& factory)
 {
+    if(factory == nullptr)
+    {
+        qWarning("Factory not initialized");
+        return "";
+    }
+
     auto myClass = factory->createClass("MyClass");
 
     if(myClass != nullptr)
@@ -32,21 +25,20 @@ string generateProgram(shared_ptr<ICodeFactory>& factory)
         method->add(factory->createMethodBody(R"(Hello, world!\n)"));
         myClass->add(method, AbstractClassUnit::PROTECTED);
 
-        myClass->add(factory->createMethod("testFunc5", "void", AbstractMethodUnit::ABSTRACT | AbstractMethodUnit::FINAL), AbstractClassUnit::PRIVATE);
-
         return myClass->compile();
     }
 
     return "";
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-
     shared_ptr<ICodeFactory> cppFactory = make_shared<CPPFactory>();
     shared_ptr<ICodeFactory> csharpFactory = make_shared<CSharpFactory>();
     shared_ptr<ICodeFactory> javaFactory = make_shared<JavaFactory>();
 
+    std::cout<<generateProgram(cppFactory)<<std::endl;
+    std::cout<<generateProgram(csharpFactory)<<std::endl;
     std::cout<<generateProgram(javaFactory)<<std::endl;
 
     return 0;

@@ -10,6 +10,7 @@ public:
 
 public:
     explicit CPPClassUnit(const string& name);
+    ~CPPClassUnit() = default;
     void add(const shared_ptr<Unit>& unit, Flags flags);
     string compile(unsigned int level = 0) const;
 };
