@@ -3,6 +3,7 @@
 
 #include"CodeGenerator.h"
 #include "CPP/CPPFactory.h"
+#include "CSharp/CSharpFactory.h"
 
 /*string generateProgram()
 {
@@ -23,9 +24,10 @@ int main()
 {
     //std::cout<<generateProgram()<<std::endl;
     CPPFactory cppFactory;
-    CodeGenerator codeGenerator;
+    CSharpFactory csharpFactory;
+    //CodeGenerator codeGenerator;
 
-    std::cout<<cppFactory.GenerateProgram()<<std::endl;
+    std::cout<<csharpFactory.generateProgram()<<std::endl;
 
     return 0;
 }

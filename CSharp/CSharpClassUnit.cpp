@@ -1,11 +1,11 @@
-#include "CPPClassUnit.h"
+#include "CSharpClassUnit.h"
 
-CPPClassUnit::CPPClassUnit(const string &name):AbstractClassUnit(name)
+CSharpClassUnit::CSharpClassUnit(const string &name):AbstractClassUnit(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }
 
-void CPPClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
+void CSharpClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
 {
     int accessModifier = PRIVATE;
 
@@ -17,7 +17,7 @@ void CPPClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
     m_fields[accessModifier].push_back(unit);
 }
 
-string CPPClassUnit::compile(unsigned int level) const
+string CSharpClassUnit::compile(unsigned int level) const
 {
     string result = generateShift(level) + "class " + m_name + " {\n";
 
@@ -27,11 +27,9 @@ string CPPClassUnit::compile(unsigned int level) const
         {
             continue;
         }
-
-        result += ACCESS_MODIFIERS[i] + ":\n";
         for(const auto& f : m_fields[i])
         {
-            result += f->compile(level + 1);
+            result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + f->compile(level + 1);
 
         }
         result += "\n";//Проверить!!
@@ -40,4 +38,4 @@ string CPPClassUnit::compile(unsigned int level) const
     return result;
 }
 
-const vector<string> CPPClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
+const vector<string> CSharpClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private", "private protected", "internal", "protected internal"};

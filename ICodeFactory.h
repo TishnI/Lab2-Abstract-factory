@@ -13,7 +13,7 @@ class ICodeFactory
 {
 public:
     virtual ~ICodeFactory() = default;
-    virtual string GenerateProgram() = 0;
+    virtual string generateProgram() = 0;
 };
 
 #endif // ICODEFACTORY_H

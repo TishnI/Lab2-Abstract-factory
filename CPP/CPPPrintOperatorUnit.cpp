@@ -1,6 +1,6 @@
 #include "CPPPrintOperatorUnit.h"
 
-CPPPrintOperatorUnit::CPPPrintOperatorUnit(const string &text) : m_text(text) {}
+CPPPrintOperatorUnit::CPPPrintOperatorUnit(const string &text) : AbstractMethodBodyUnit(text) {}
 
 string CPPPrintOperatorUnit::compile(unsigned int level) const
 {

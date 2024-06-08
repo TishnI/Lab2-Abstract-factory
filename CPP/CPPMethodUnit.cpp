@@ -1,7 +1,7 @@
 #include "CPPMethodUnit.h"
 
 CPPMethodUnit::CPPMethodUnit(const string &name, const string &returnType, Flags flags)
-    : m_name(name), m_returnType(returnType), m_flags(flags)
+    : AbstractMethodUnit(name, returnType, flags)
 {}
 
 void CPPMethodUnit::add(const shared_ptr<Unit> &unit, Flags)

@@ -1,16 +1,13 @@
 #ifndef CPPPRINTOPERATORUNIT_H
 #define CPPPRINTOPERATORUNIT_H
 
-#include "IMethodBodyUnit.h"
+#include "AbstractMethodBodyUnit.h"
 
-class CPPPrintOperatorUnit : public IMethodBodyUnit
+class CPPPrintOperatorUnit : public AbstractMethodBodyUnit
 {
 public:
     explicit CPPPrintOperatorUnit(const string& text);
     string compile(unsigned int level = 0) const;
-
-private:
-    string m_text;
 };
 
 #endif // CPPPRINTOPERATORUNIT_H

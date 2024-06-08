@@ -1,7 +1,7 @@
 #include "CPPFactory.h"
 
 
-string CPPFactory::GenerateProgram()
+string CPPFactory::generateProgram()
 {
     CPPClassUnit myClass("MyClass");
 

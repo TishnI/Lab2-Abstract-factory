@@ -1,0 +1,25 @@
+#ifndef ABSTRACTMETHODUNIT_H
+#define ABSTRACTMETHODUNIT_H
+
+#include "Unit.h"
+
+class AbstractMethodUnit : public Unit
+{
+public:
+    enum Modifier
+    {
+        STATIC  = 1,
+        CONST   = 1 << 1,
+        VIRTUAL = 1 << 2
+    };
+
+    AbstractMethodUnit(const string& name, const string& returnType, Flags flags);
+
+protected:
+    string m_name;
+    string m_returnType;
+    Flags m_flags;
+    vector<shared_ptr<Unit>> m_body;
+};
+
+#endif // ABSTRACTMETHODUNIT_H

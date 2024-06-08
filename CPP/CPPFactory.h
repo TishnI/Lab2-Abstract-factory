@@ -9,7 +9,7 @@
 class CPPFactory : public ICodeFactory
 {
 public:
-    virtual string GenerateProgram();
+    virtual string generateProgram();
 };
 
 #endif // CPPFACTORY_H

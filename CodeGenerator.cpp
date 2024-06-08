@@ -1,6 +1,6 @@
 #include "CodeGenerator.h"
 
-string CodeGenerator::GenerateCode(ICodeFactory &factory)
+string CodeGenerator::generateCode(ICodeFactory &factory)
 {
-    return factory.GenerateProgram();
+    return factory.generateProgram();
 }

@@ -7,7 +7,7 @@
 class CodeGenerator
 {
 public:
-    string GenerateCode(ICodeFactory& factory);
+    string generateCode(ICodeFactory& factory);
 };
 
 #endif // CODEGENERATOR_H
