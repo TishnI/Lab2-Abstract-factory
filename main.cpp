@@ -3,6 +3,7 @@
 
 #include "CPP/CPPFactory.h"
 #include "CSharp/CSharpFactory.h"
+#include "Java/JavaFactory.h"
 
 /*string generateProgram()
 {
@@ -31,6 +32,8 @@ string generateProgram(shared_ptr<ICodeFactory>& factory)
         method->add(factory->createMethodBody(R"(Hello, world!\n)"));
         myClass->add(method, AbstractClassUnit::PROTECTED);
 
+        myClass->add(factory->createMethod("testFunc5", "void", AbstractMethodUnit::ABSTRACT | AbstractMethodUnit::FINAL), AbstractClassUnit::PRIVATE);
+
         return myClass->compile();
     }
 
@@ -39,12 +42,12 @@ string generateProgram(shared_ptr<ICodeFactory>& factory)
 
 int main()
 {
-    //std::cout<<generateProgram()<<std::endl;
 
     shared_ptr<ICodeFactory> cppFactory = make_shared<CPPFactory>();
     shared_ptr<ICodeFactory> csharpFactory = make_shared<CSharpFactory>();
+    shared_ptr<ICodeFactory> javaFactory = make_shared<JavaFactory>();
 
-    std::cout<<generateProgram(csharpFactory)<<std::endl;
+    std::cout<<generateProgram(javaFactory)<<std::endl;
 
     return 0;
 }

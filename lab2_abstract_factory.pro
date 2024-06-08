@@ -19,6 +19,10 @@ SOURCES += \
         CSharp/CSharpMethodUnit.cpp \
         CSharp/CSharpPrintOperatorUnit.cpp \
         ICodeFactory.cpp \
+        Java/JavaClassUnit.cpp \
+        Java/JavaFactory.cpp \
+        Java/JavaMethodUnit.cpp \
+        Java/JavaPrintOperatorUnit.cpp \
         Unit.cpp \
         main.cpp
 
@@ -40,4 +44,8 @@ HEADERS += \
     CSharp/CSharpMethodUnit.h \
     CSharp/CSharpPrintOperatorUnit.h \
     ICodeFactory.h \
+    Java/JavaClassUnit.h \
+    Java/JavaFactory.h \
+    Java/JavaMethodUnit.h \
+    Java/JavaPrintOperatorUnit.h \
     Unit.h

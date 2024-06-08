@@ -1,11 +1,11 @@
-#include "CPPClassUnit.h"
+#include "JavaClassUnit.h"
 
-CPPClassUnit::CPPClassUnit(const string &name):AbstractClassUnit(name)
+JavaClassUnit::JavaClassUnit(const string &name):AbstractClassUnit(name)
 {
     m_fields.resize(ACCESS_MODIFIERS.size());
 }
 
-void CPPClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
+void JavaClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
 {
     int accessModifier = PRIVATE;
 
@@ -15,13 +15,13 @@ void CPPClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
     }
     else
     {
-        qWarning("C++ does not support this access modifier.");
+        qWarning("Java does not support this access modifier.");
     }
 
     m_fields[accessModifier].push_back(unit);
 }
 
-string CPPClassUnit::compile(unsigned int level) const
+string JavaClassUnit::compile(unsigned int level) const
 {
     string result = generateShift(level) + "class " + m_name + " {\n";
 
@@ -31,11 +31,9 @@ string CPPClassUnit::compile(unsigned int level) const
         {
             continue;
         }
-
-        result += ACCESS_MODIFIERS[i] + ":\n";
         for(const auto& f : m_fields[i])
         {
-            result += f->compile(level + 1);
+            result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + f->compile(level + 1);
 
         }
         result += "\n";
@@ -44,4 +42,4 @@ string CPPClassUnit::compile(unsigned int level) const
     return result;
 }
 
-const vector<string> CPPClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
+const vector<string> JavaClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};

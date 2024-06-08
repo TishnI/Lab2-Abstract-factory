@@ -21,11 +21,25 @@ string CPPMethodUnit::compile(unsigned int level) const
     {
         result += "virtual ";
     }
+
+    if(m_flags & ABSTRACT)
+    {
+        qWarning("C++ does not contain the abstract keyword");
+    }
+
     result += m_returnType + " ";
-    result += m_name + " () ";
+    result += m_name + "()";
+
     if(m_flags & CONST)
     {
         result += " const";
+    }
+    if(m_flags & VIRTUAL)
+    {
+        if(m_flags & FINAL)
+        {
+            result += " final";
+        }
     }
     result += " {\n";
 

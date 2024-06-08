@@ -13,7 +13,8 @@ public:
         PRIVATE,
         PRIVATE_PROTECTED,
         INTERNAL,
-        PROTECTED_INTERNAL
+        PROTECTED_INTERNAL,
+        FILE
     };
 
     AbstractClassUnit(const string& name);

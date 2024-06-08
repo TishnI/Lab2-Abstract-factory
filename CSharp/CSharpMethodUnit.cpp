@@ -21,7 +21,20 @@ string CSharpMethodUnit::compile(unsigned int level) const
     {
         result += "virtual ";
     }
+    else if(m_flags & ABSTRACT)
+    {
+        result += "abstract " + m_returnType + " " + m_name + "();";
+        return result;
+    }
     result += m_returnType + " " + m_name + "() ";
+    if(m_flags & CONST)
+    {
+        qWarning("C# does not support const methods");
+    }
+    if(m_flags & FINAL)
+    {
+        qWarning("C# does not contain the final keyword");
+    }
     result += " {\n";
 
     for(const auto& b: m_body)

@@ -13,6 +13,10 @@ void CSharpClassUnit::add(const shared_ptr<Unit> &unit, Flags flags)
     {
         accessModifier = flags;
     }
+    else
+    {
+        qWarning("C# does not support this access modifier.");
+    }
 
     m_fields[accessModifier].push_back(unit);
 }
@@ -32,10 +36,10 @@ string CSharpClassUnit::compile(unsigned int level) const
             result += generateShift(level + 1) + ACCESS_MODIFIERS[i] + " " + f->compile(level + 1);
 
         }
-        result += "\n";//Проверить!!
+        result += "\n";
     }
     result += generateShift(level) + "};\n";
     return result;
 }
 
-const vector<string> CSharpClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private", "private protected", "internal", "protected internal"};
+const vector<string> CSharpClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private", "private protected", "internal", "protected internal", "file"};
