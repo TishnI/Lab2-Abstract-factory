@@ -6,7 +6,7 @@
 class CPPClassUnit : public AbstractClassUnit
 {
 public:
-    static const vector<string> ACCESS_MODIFIERS;
+    static const vector<string> MODIFIERS;
 
 public:
     explicit CPPClassUnit(const string& name);

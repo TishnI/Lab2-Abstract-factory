@@ -7,6 +7,7 @@ class JavaPrintOperatorUnit : public AbstractMethodBodyUnit
 {
 public:
     explicit JavaPrintOperatorUnit(const string& text);
+    ~JavaPrintOperatorUnit() = default;
     string compile(unsigned int level = 0) const;
 };
 

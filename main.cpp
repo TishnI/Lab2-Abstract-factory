@@ -6,7 +6,7 @@
 #include "Java/JavaFactory.h"
 
 
-string generateProgram(shared_ptr<ICodeFactory>& factory)
+string generateProgram(shared_ptr<AbstractFactory>& factory)
 {
     if(factory == nullptr)
     {
@@ -25,17 +25,20 @@ string generateProgram(shared_ptr<ICodeFactory>& factory)
         method->add(factory->createMethodBody(R"(Hello, world!\n)"));
         myClass->add(method, AbstractClassUnit::PROTECTED);
 
+        myClass->add(factory->createMethod("testFunc5", "void", AbstractMethodUnit::FINAL), AbstractClassUnit::PUBLIC);
+
         return myClass->compile();
     }
 
     return "";
 }
 
+
 int main(int argc, char *argv[])
 {
-    shared_ptr<ICodeFactory> cppFactory = make_shared<CPPFactory>();
-    shared_ptr<ICodeFactory> csharpFactory = make_shared<CSharpFactory>();
-    shared_ptr<ICodeFactory> javaFactory = make_shared<JavaFactory>();
+    shared_ptr<AbstractFactory> cppFactory = make_shared<CPPFactory>();
+    shared_ptr<AbstractFactory> csharpFactory = make_shared<CSharpFactory>();
+    shared_ptr<AbstractFactory> javaFactory = make_shared<JavaFactory>();
 
     std::cout<<generateProgram(cppFactory)<<std::endl;
     std::cout<<generateProgram(csharpFactory)<<std::endl;

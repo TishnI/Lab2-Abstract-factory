@@ -26,7 +26,7 @@ string CSharpMethodUnit::compile(unsigned int level) const
         result += "abstract " + m_returnType + " " + m_name + "();";
         return result;
     }
-    result += m_returnType + " " + m_name + "() ";
+    result += m_returnType + " " + m_name + "()";
     if(m_flags & CONST)
     {
         qWarning("C# does not support const methods");

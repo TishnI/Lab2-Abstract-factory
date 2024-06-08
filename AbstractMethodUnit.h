@@ -11,8 +11,8 @@ public:
         STATIC   =   1,
         CONST    =   1 << 1,
         VIRTUAL  =   1 << 2,
-        FINAL    =   1<<3,
-        ABSTRACT =   1<<4
+        FINAL    =   1 << 3,
+        ABSTRACT =   1 << 4
     };
 
     AbstractMethodUnit(const string& name, const string& returnType, Flags flags);

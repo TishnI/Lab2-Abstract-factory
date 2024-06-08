@@ -41,6 +41,7 @@ string CPPMethodUnit::compile(unsigned int level) const
             result += " final";
         }
     }
+
     result += " {\n";
 
     for(const auto& b: m_body)

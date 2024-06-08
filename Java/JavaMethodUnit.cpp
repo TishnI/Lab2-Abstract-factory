@@ -35,7 +35,7 @@ string JavaMethodUnit::compile(unsigned int level) const
         qWarning("Java does not contain the virtual keyword");
     }
 
-    result += m_returnType + " " + m_name + "() ";
+    result += m_returnType + " " + m_name + "()";
     result += " {\n";
 
     for(const auto& b: m_body)

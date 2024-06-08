@@ -6,7 +6,8 @@
 class CPPMethodUnit : public AbstractMethodUnit
 {
 public:
-    CPPMethodUnit(const string& name, const string& returnType, Flags flags);
+    explicit CPPMethodUnit(const string& name, const string& returnType, Flags flags);
+    ~CPPMethodUnit() = default;
     void add(const shared_ptr<Unit>& unit, Flags = 0);
     string compile(unsigned int level = 0) const;
 };

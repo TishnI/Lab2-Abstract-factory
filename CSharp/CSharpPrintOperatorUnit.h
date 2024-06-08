@@ -7,6 +7,7 @@ class CSharpPrintOperatorUnit : public AbstractMethodBodyUnit
 {
 public:
     explicit CSharpPrintOperatorUnit(const string& text);
+    ~CSharpPrintOperatorUnit() = default;
     string compile(unsigned int level = 0) const;
 };
 

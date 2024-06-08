@@ -7,6 +7,7 @@ class CPPPrintOperatorUnit : public AbstractMethodBodyUnit
 {
 public:
     explicit CPPPrintOperatorUnit(const string& text);
+    ~CPPPrintOperatorUnit() = default;
     string compile(unsigned int level = 0) const;
 };
 

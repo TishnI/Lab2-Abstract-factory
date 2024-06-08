@@ -1,5 +1,5 @@
-#ifndef ICODEFACTORY_H
-#define ICODEFACTORY_H
+#ifndef ABSTRACTFACTORY_H
+#define ABSTRACTFACTORY_H
 #include<iostream>
 #include <vector>
 #include <memory>
@@ -15,7 +15,7 @@ using std::shared_ptr;
 using std::make_shared;
 using std::vector;
 
-class ICodeFactory
+class AbstractFactory
 {
 public:
     using Flags = unsigned int;
@@ -24,4 +24,4 @@ public:
     virtual shared_ptr<AbstractMethodBodyUnit> createMethodBody(const string& text) = 0;
 };
 
-#endif // ICODEFACTORY_H
+#endif // ABSTRACTFACTORY_H
