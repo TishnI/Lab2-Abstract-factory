@@ -8,7 +8,6 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         AbstractClassUnit.cpp \
-        AbstractFactory.cpp \
         AbstractMethodBodyUnit.cpp \
         AbstractMethodUnit.cpp \
         CSharp/CSharpClassUnit.cpp \
@@ -19,6 +18,7 @@ SOURCES += \
         CSharp/CSharpFactory.cpp \
         CSharp/CSharpMethodUnit.cpp \
         CSharp/CSharpPrintOperatorUnit.cpp \
+        ICodeFactory.cpp \
         Java/JavaClassUnit.cpp \
         Java/JavaFactory.cpp \
         Java/JavaMethodUnit.cpp \
@@ -33,7 +33,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     AbstractClassUnit.h \
-    AbstractFactory.h \
     AbstractMethodBodyUnit.h \
     AbstractMethodUnit.h \
     CSharp/CSharpClassUnit.h \
@@ -44,6 +43,7 @@ HEADERS += \
     CSharp/CSharpFactory.h \
     CSharp/CSharpMethodUnit.h \
     CSharp/CSharpPrintOperatorUnit.h \
+    ICodeFactory.h \
     Java/JavaClassUnit.h \
     Java/JavaFactory.h \
     Java/JavaMethodUnit.h \

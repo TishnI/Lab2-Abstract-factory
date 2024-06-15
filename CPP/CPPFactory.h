@@ -1,12 +1,12 @@
 #ifndef CPPFACTORY_H
 #define CPPFACTORY_H
 
-#include <AbstractFactory.h>
+#include <ICodeFactory.h>
 #include"CPPClassUnit.h"
 #include"CPPMethodUnit.h"
 #include"CPPPrintOperatorUnit.h"
 
-class CPPFactory : public AbstractFactory
+class CPPFactory : public ICodeFactory
 {
 public:
     CPPFactory() = default;

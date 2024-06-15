@@ -1,13 +1,13 @@
 #ifndef JAVAFACTORY_H
 #define JAVAFACTORY_H
 
-#include <AbstractFactory.h>
+#include <ICodeFactory.h>
 
 #include "JavaClassUnit.h"
 #include "JavaMethodUnit.h"
 #include "JavaPrintOperatorUnit.h"
 
-class JavaFactory : public AbstractFactory
+class JavaFactory : public ICodeFactory
 {
 public:
     JavaFactory() = default;

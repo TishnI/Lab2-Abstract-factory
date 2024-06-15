@@ -6,7 +6,7 @@
 class CSharpClassUnit : public AbstractClassUnit
 {
 public:
-    static const vector<string> MODIFIERS;
+    static const vector<string> ACCESS_MODIFIERS;
 
 public:
     explicit CSharpClassUnit(const string& name);

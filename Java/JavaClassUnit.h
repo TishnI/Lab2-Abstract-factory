@@ -6,7 +6,7 @@
 class JavaClassUnit : public AbstractClassUnit
 {
 public:
-    static const vector<string> MODIFIERS;
+    static const vector<string> ACCESS_MODIFIERS;
 
 public:
     explicit JavaClassUnit(const string& name);
