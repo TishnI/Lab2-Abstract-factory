@@ -12,9 +12,9 @@ public:
     CPPFactory() = default;
     ~CPPFactory() = default;
 
-    virtual shared_ptr<AbstractClassUnit> createClass(const string &name);
-    virtual shared_ptr<AbstractMethodUnit> createMethod(const string &name, const string &returnType, Flags flags);
-    virtual shared_ptr<AbstractMethodBodyUnit> createMethodBody(const string &text);
+    shared_ptr<AbstractClassUnit> createClass(const string &name);
+    shared_ptr<AbstractMethodUnit> createMethod(const string &name, const string &returnType, Flags flags);
+    shared_ptr<AbstractMethodBodyUnit> createMethodBody(const string &text);
 
 };
 
